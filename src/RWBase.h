@@ -21,14 +21,6 @@ public:
 	size_t len();
 
 	template <class T>
-	T load(T value)
-	{
-
-
-		return value;
-	}
-
-	template <class T>
 	T format(T value)
 	{
 		if (m_uiEndian == EEndian::INVERSE_ENDIAN)
