@@ -34,7 +34,7 @@ public:
 	void					mat44(float* pFloats);
 
 	template <class T>
-	void structure(T& structure)
+	void st(T& structure)
 	{
 		cstr((char*)&structure, sizeof(T));
 	};

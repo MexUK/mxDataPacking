@@ -26,7 +26,7 @@ public:
 	std::string					mstr();
 
 	template <class T>
-	T structure()
+	T st()
 	{
 		return *(T*)cstr(sizeof(T));
 	};
