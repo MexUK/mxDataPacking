@@ -57,6 +57,7 @@ void					Buffer::pop(uint64_t uiEntryCount)
 }
 
 
+/*
 void					Buffer::shift(uint64_t uiEntryCount)
 {
 }
@@ -73,3 +74,5 @@ void					Buffer::set(uint64_t uiIndex, vector<uint8_t> vecBytes)
 void					Buffer::remove(uint64_t uiIndex, uint64_t uiByteCount)
 {
 }
+*/
+

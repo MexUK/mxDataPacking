@@ -24,9 +24,11 @@ public:
 	void					push(std::vector<uint8_t> vecBytes);
 	void					pop(uint64_t uiEntryCount);
 
+	/*
 	void					shift(uint64_t uiEntryCount);
 	void					unshift(std::vector<uint8_t> vecBytes);
 
 	void					set(uint64_t uiIndex, std::vector<uint8_t> vecBytes);
 	void					remove(uint64_t uiIndex, uint64_t uiByteCount);
+	*/
 };
