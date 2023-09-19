@@ -15,8 +15,6 @@ public:
 	RWBase(Buffer *pBuffer, bool bBufferApiOwned);
 	~RWBase();
 	
-	void resetApiOwnedBuffer();
-
 	uint8_t* data();
 	size_t len();
 
@@ -55,4 +53,7 @@ public:
 			return value;
 		}
 	}
+
+private:
+	void resetApiOwnedBuffer();
 };
