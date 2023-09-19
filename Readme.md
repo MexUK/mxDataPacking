@@ -1,16 +1,18 @@
-Data Packing (C++)
+**Data Packing (C++)**
 
-A C++ library with no dependencies, for packing/unpacking binary data.<br>
+A C++ library with no dependencies, for packing/unpacking binary data, with a byte-vector buffer.
 
 -----
 
-The library has MIT license.
-This basically means you can use/edit the library for almost any purpose, make sure to
+**License**
+
+The library has MIT license.  
+This basically means you can use/edit the library for almost any purpose, make sure to  
 include the "LICENSE" file with your copy of this library.
 
 -----
 
-Example:
+**Example**
 
 ```cpp
 #include "mx.h"
