@@ -36,24 +36,24 @@ void					Buffer::seek(uint64_t uiIndex)
 }
 
 
-void					Buffer::push(uint8_t* pData, uint64_t uiDataLen)
+void					Buffer::push(uint8_t* pData, uint64_t uiByteCount)
 {
-	m_vecData.insert(m_vecData.end(), pData, pData + uiDataLen);
-	m_uiIndex += uiDataLen;
+	m_vecData.insert(m_vecData.end(), pData, pData + uiByteCount);
+	m_uiIndex += uiByteCount;
 }
 
-void					Buffer::push(vector<uint8_t> vecBytes)
+void					Buffer::push(vector<uint8_t> vecData)
 {
 	uint8_t* pData = m_vecData.data();
-	uint64_t uiSize = vecBytes.size();
+	uint64_t uiSize = vecData.size();
 	m_vecData.insert(m_vecData.end(), pData, pData + uiSize);
 	m_uiIndex += uiSize;
 }
 
-void					Buffer::pop(uint64_t uiEntryCount)
+void					Buffer::pop(uint64_t uiByteCount)
 {
-	m_vecData.erase(m_vecData.end() - uiEntryCount);
-	m_uiIndex -= uiEntryCount;
+	m_vecData.erase(m_vecData.end() - uiByteCount);
+	m_uiIndex -= uiByteCount;
 }
 
 

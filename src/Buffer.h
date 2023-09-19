@@ -20,9 +20,9 @@ public:
 	uint8_t*				get(uint64_t uiIndex, uint64_t uiByteCount);
 	void					seek(uint64_t uiIndex);
 
-	void					push(uint8_t* pData, uint64_t uiDataLen);
-	void					push(std::vector<uint8_t> vecBytes);
-	void					pop(uint64_t uiEntryCount);
+	void					push(uint8_t* pData, uint64_t uiByteCount);
+	void					push(std::vector<uint8_t> vecData);
+	void					pop(uint64_t uiByteCount);
 
 	/*
 	void					shift(uint64_t uiEntryCount);
