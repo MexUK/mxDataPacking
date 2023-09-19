@@ -162,7 +162,7 @@ char* mx::Reader::cstr(uint64_t uiLength);
 std::string mx::Reader::mstr();
 
 template <class T>
-T* structure(T& structure);
+T structure();
 ```
 
 mx::RWBase
