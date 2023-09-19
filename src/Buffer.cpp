@@ -74,6 +74,11 @@ void					Buffer::seek(uint64_t uiByteIndex)
 	m_uiIndex = uiByteIndex;
 }
 
+uint64_t				Buffer::seek()
+{
+	return m_uiIndex;
+}
+
 
 void					Buffer::push(uint8_t* pData, uint64_t uiByteCount)
 {

@@ -9,19 +9,16 @@
 class mx::Buffer
 {
 public:
-	uint64_t						m_uiIndex;
+	uint64_t					m_uiIndex;
 
-	uint8_t							m_uiStorage;
+	uint8_t						m_uiStorage;
 	union
 	{
-		union
+		std::vector<uint8_t>	m_vecData;
+		struct
 		{
-			std::vector<uint8_t>	m_vecData;
-			struct
-			{
-				uint64_t			m_uiDataLength;
-				uint8_t*			m_pData;
-			};
+			uint64_t			m_uiDataLength;
+			uint8_t*			m_pData;
 		};
 	};
 
@@ -33,6 +30,7 @@ public:
 	uint8_t*				get(uint64_t uiByteCount);
 	uint8_t*				get(uint64_t uiIndex, uint64_t uiByteCount);
 	void					seek(uint64_t uiByteIndex);
+	uint64_t				seek();
 
 	void					push(uint8_t* pData, uint64_t uiByteCount);
 	void					push(std::vector<uint8_t>& vecData);
