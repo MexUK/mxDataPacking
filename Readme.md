@@ -17,6 +17,8 @@ include the "LICENSE" file with your copy of this library.
 example.h
 
 ```cpp
+#include <cstdint>
+
 #pragma pack(push,1)
 struct Type1
 {
