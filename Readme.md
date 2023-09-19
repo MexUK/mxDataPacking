@@ -168,8 +168,8 @@ T structure();
 mx::RWBase
 
 ```cpp
-uint8_t* mx::RWBase::data(); // Returns a pointer to the start of the data, not the seek'd position.
-size_t mx::RWBase::len();
+uint8_t* mx::RWBase::data(); // Returns a pointer to the start of the data, not at the seek position.
+size_t mx::RWBase::len(); // Returns the total length of the data.
 ```
 
 mx::Buffer
