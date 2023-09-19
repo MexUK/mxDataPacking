@@ -33,6 +33,58 @@ Buffer::~Buffer()
 {
 }
 
+
+uint8_t					Buffer::storage()
+{
+	return m_uiStorage;
+}
+
+void					Buffer::seek(uint64_t uiByteIndex)
+{
+	m_uiIndex = uiByteIndex;
+}
+
+uint64_t				Buffer::seek()
+{
+	return m_uiIndex;
+}
+
+uint64_t				Buffer::left()
+{
+	return length() - m_uiIndex;
+}
+
+uint64_t				Buffer::length()
+{
+	switch (m_uiStorage)
+	{
+	case EStorage::STD_VECTOR_UINT_8:
+		return m_vecData.size();
+
+	case EStorage::POINTER_AND_LENGTH:
+		return m_uiDataLength;
+
+	default:
+		return 0;
+	}
+}
+
+uint8_t*				Buffer::data()
+{
+	switch (m_uiStorage)
+	{
+	case EStorage::STD_VECTOR_UINT_8:
+		return m_vecData.data();
+
+	case EStorage::POINTER_AND_LENGTH:
+		return m_pData;
+
+	default:
+		return nullptr;
+	}
+}
+
+
 uint8_t*				Buffer::get(uint64_t uiByteCount)
 {
 	uint8_t* pData;
@@ -48,6 +100,9 @@ uint8_t*				Buffer::get(uint64_t uiByteCount)
 		pData = m_pData + m_uiIndex;
 		m_uiIndex += uiByteCount;
 		return pData;
+
+	default:
+		return nullptr;
 	}
 }
 
@@ -66,17 +121,10 @@ uint8_t*				Buffer::get(uint64_t uiIndex, uint64_t uiByteCount)
 		pData = m_pData + uiIndex;
 		m_uiIndex += uiByteCount;
 		return pData;
+
+	default:
+		return nullptr;
 	}
-}
-
-void					Buffer::seek(uint64_t uiByteIndex)
-{
-	m_uiIndex = uiByteIndex;
-}
-
-uint64_t				Buffer::seek()
-{
-	return m_uiIndex;
 }
 
 
@@ -92,6 +140,7 @@ void					Buffer::push(uint8_t* pData, uint64_t uiByteCount)
 	case EStorage::POINTER_AND_LENGTH:
 		memcpy(m_pData + m_uiIndex, pData, uiByteCount);
 		m_uiIndex += uiByteCount;
+		m_uiDataLength += uiByteCount;
 		break;
 	}
 }
@@ -115,6 +164,7 @@ void					Buffer::push(vector<uint8_t>& vecData)
 		uiSize = vecData.size();
 		memcpy(m_pData + m_uiIndex, pData, uiSize);
 		m_uiIndex += uiSize;
+		m_uiDataLength += uiSize;
 		break;
 	}
 }
@@ -130,6 +180,7 @@ void					Buffer::pop(uint64_t uiByteCount)
 
 	case EStorage::POINTER_AND_LENGTH:
 		m_uiIndex -= uiByteCount;
+		m_uiDataLength -= uiByteCount;
 		break;
 	}
 }

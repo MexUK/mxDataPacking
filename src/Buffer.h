@@ -27,10 +27,15 @@ public:
 	Buffer();
 	~Buffer();
 
-	uint8_t*				get(uint64_t uiByteCount);
-	uint8_t*				get(uint64_t uiIndex, uint64_t uiByteCount);
+	uint8_t					storage();
 	void					seek(uint64_t uiByteIndex);
 	uint64_t				seek();
+	uint64_t				left();
+	uint64_t				length();
+	uint8_t*				data();
+
+	uint8_t*				get(uint64_t uiByteCount);
+	uint8_t*				get(uint64_t uiIndex, uint64_t uiByteCount);
 
 	void					push(uint8_t* pData, uint64_t uiByteCount);
 	void					push(std::vector<uint8_t>& vecData);
