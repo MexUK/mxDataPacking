@@ -24,8 +24,8 @@ public:
 	};
 
 	Buffer(std::vector<uint8_t>& vecData);
-	Buffer(uint8_t* pData, uint64_t uiDataLen, uint64_t uiDataAllocLength = 0);
-	Buffer();
+	Buffer(uint8_t* pData, uint64_t uiDataLen, uint64_t uiDataAllocLength = 0); // readonly buffer
+	Buffer(); // must set m_uiStorage
 	~Buffer();
 
 	uint8_t					storage();
@@ -47,10 +47,12 @@ public:
 	void					pop(uint64_t uiByteCount);
 
 	/*
-	void					shift(uint64_t uiEntryCount);
-	void					unshift(std::vector<uint8_t> vecBytes);
+	void					shift(uint64_t uiByteCount);
+	void					unshift(uint8_t* pData, uint64_t uiByteCount);
+	void					unshift(std::vector<uint8_t>& vecData);
 
-	void					set(uint64_t uiIndex, std::vector<uint8_t> vecBytes);
+	void					set(uint64_t uiIndex, uint8_t* pData, uint64_t uiByteCount);
+	void					set(uint64_t uiIndex, std::vector<uint8_t>& vecData);
 	void					remove(uint64_t uiIndex, uint64_t uiByteCount);
 	*/
 };

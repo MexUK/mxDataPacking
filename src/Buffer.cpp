@@ -136,6 +136,11 @@ uint8_t*				Buffer::get(uint64_t uiByteCount)
 
 uint8_t*				Buffer::get(uint64_t uiIndex, uint64_t uiByteCount)
 {
+	if (!canRW(uiByteCount))
+	{
+		return nullptr;
+	}
+
 	uint8_t* pData;
 
 	switch (m_uiStorage)
@@ -228,18 +233,25 @@ void					Buffer::pop(uint64_t uiByteCount)
 	}
 }
 
-
 /*
-void					Buffer::shift(uint64_t uiEntryCount)
+void					Buffer::shift(uint64_t uiByteCount)
 {
 }
 
-void					Buffer::unshift(vector<uint8_t> vecBytes)
+void					Buffer::unshift(uint8_t* pData, uint64_t uiByteCount)
+{
+}
+
+void					Buffer::unshift(vector<uint8_t>& vecData)
 {
 }
 
 
-void					Buffer::set(uint64_t uiIndex, vector<uint8_t> vecBytes)
+void					Buffer::set(uint64_t uiIndex, uint8_t* pData, uint64_t uiByteCount)
+{
+}
+
+void					Buffer::set(uint64_t uiIndex, vector<uint8_t>& vecData)
 {
 }
 
