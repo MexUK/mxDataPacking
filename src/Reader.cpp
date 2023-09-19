@@ -26,40 +26,33 @@ uint8_t						Reader::ui8()
 
 uint16_t					Reader::ui16()
 {
-	return *(uint16_t*)m_pBuffer->get(2);
+	return format(*(uint16_t*)m_pBuffer->get(2));
 }
 
 uint32_t					Reader::ui24()
 {
-	uint16_t uiPart1 = *(uint16_t*)m_pBuffer->get(2);
-	uint8_t uiPart2 = *(uint8_t*)m_pBuffer->get(1);
-	return (uiPart1 << 8) + uiPart2;
+	return format(*(uint32_t*)m_pBuffer->get(3));
 }
 
 uint32_t					Reader::ui32()
 {
-	return *(uint32_t*)m_pBuffer->get(4);
+	return format(*(uint32_t*)m_pBuffer->get(4));
 }
 
 uint64_t					Reader::ui64()
 {
-	return *(uint64_t*)m_pBuffer->get(8);
+	return format(*(uint64_t*)m_pBuffer->get(8));
 }
 
 // float
 float						Reader::f32()
 {
-	return *(float*)m_pBuffer->get(4);
+	return format(*(float*)m_pBuffer->get(4));
 }
 
 double						Reader::f64()
 {
-	return *(double*)m_pBuffer->get(8);
-}
-
-long double					Reader::f80()
-{
-	return f64();
+	return format(*(double*)m_pBuffer->get(8));
 }
 
 // string
@@ -84,6 +77,11 @@ float*						Reader::vec2()
 float*						Reader::vec3()
 {
 	return (float*)m_pBuffer->get(12);
+}
+
+float*						Reader::vec4()
+{
+	return (float*)m_pBuffer->get(16);
 }
 
 // matrix

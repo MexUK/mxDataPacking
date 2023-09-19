@@ -20,13 +20,13 @@ public:
 	
 	void					f32(float fValue);
 	void					f64(double fValue);
-	void					f80(long double fValue);
 	
 	void					cstr(char* pData, uint64_t uiLength);
 	void					mstr(std::string& strData);
 
 	void					vec2(float* pFloats);
 	void					vec3(float* pFloats);
+	void					vec4(float* pFloats);
 
 	void					mat34(float* pFloats);
 	void					mat43(float* pFloats);

@@ -20,7 +20,6 @@ public:
 	
 	float						f32();
 	double						f64();
-	long double					f80();
 	
 	char*						cstr(uint64_t uiLength);
 	std::string					mstr();
@@ -33,6 +32,7 @@ public:
 
 	float*				vec2();
 	float*				vec3();
+	float*				vec4();
 
 	float*				mat34();
 	float*				mat43();

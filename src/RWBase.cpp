@@ -25,3 +25,4 @@ void RWBase::resetApiOwnedBuffer()
 	m_pBuffer = nullptr;
 	m_bBufferApiOwned = false;
 }
+
