@@ -114,7 +114,7 @@ mx::Writer : public mx::RWBase
 
 ```cpp
 mx::Writer::Writer(Buffer* pBuffer);
-mx::Writer::Writer(uint8_t* pBufferData, uint64_t uiBufferLen); // Constructs Buffer which copies pBufferData.
+mx::Writer::Writer(uint8_t* pBufferData, uint64_t uiBufferLen); // Constructs Buffer.
 mx::Writer::Writer(void);
 mx::Writer::~Writer(void);
 
@@ -146,7 +146,7 @@ mx::Reader : public mx::RWBase
 
 ```cpp
 mx::Reader::Reader(Buffer *pBuffer);
-mx::Reader::Reader(uint8_t* pBufferData, uint64_t uiBufferLen); // Constructs Buffer which copies pBufferData.
+mx::Reader::Reader(uint8_t* pBufferData, uint64_t uiBufferLen); // Constructs Buffer.
 mx::Reader::Reader(void);
 mx::Reader::~Reader(void);
 
@@ -169,7 +169,7 @@ T mx::Reader::structure();
 mx::RWBase
 
 ```cpp
-uint8_t* mx::RWBase::data(); // Returns a pointer to the start of the data, not at the seek position.
+uint8_t* mx::RWBase::data(); // Returns a pointer to the start of the data.
 size_t mx::RWBase::len(); // Returns the total length of the data.
 ```
 
