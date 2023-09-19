@@ -70,6 +70,7 @@ void func1()
 
 mx
 
+```cpp
 namespace mx
 {
 	enum EEndian;
@@ -78,14 +79,18 @@ namespace mx
 	class Reader;
 	class Writer;
 }
+```
 
 EEndian
 
+```cpp
 mx::EEndian::INITIAL_ENDIAN;
 mx::EEndian::INVERSE_ENDIAN;
+```
 
 Writer : public mx::RWBase
 
+```cpp
 mx::Writer::Writer(Buffer* pBuffer);
 mx::Writer::Writer(uint8_t* pBufferData, uint64_t uiBufferLen); // Constructs Buffer which copies pBufferData.
 mx::Writer::Writer(void);
@@ -113,9 +118,11 @@ void mx::Writer::mat44(float* pFloats);
 
 template <class T>
 void mx::Writer::structure(T& structure);
+```
 
 Reader : public mx::RWBase
 
+```cpp
 mx::Reader::Reader(Buffer *pBuffer);
 mx::Reader::Reader(uint8_t* pBufferData, uint64_t uiBufferLen); // Constructs Buffer which copies pBufferData.
 mx::Reader::Reader(void);
@@ -135,14 +142,18 @@ std::string mx::Reader::mstr();
 
 template <class T>
 void mx::Reader::structure(T& structure);
+```
 
 RWBase
 
+```cpp
 uint8_t* mx::RWBase::data();
 size_t mx::RWBase::len();
+```
 
 Buffer
 
+```cpp
 uint64_t mx::Buffer::m_uiIndex;
 std::vector<uint8_t> mx::Buffer::m_vecData;
 
@@ -156,6 +167,7 @@ void mx::Buffer::seek(uint64_t uiIndex);
 void mx::Buffer::push(uint8_t* pData, uint64_t uiDataLen);
 void mx::Buffer::push(std::vector<uint8_t> vecBytes);
 void mx::Buffer::pop(uint64_t uiEntryCount);
+```
 
 -----
 
