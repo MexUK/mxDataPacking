@@ -58,7 +58,7 @@ void func1()
     bw.cstr((char*)str.data(), 5);
     bw.mstr(str);
     Type1 type1;
-    bw.structure(type1);
+    bw.st(type1);
 
     sendPacket(bw.data(), bw.len());
 
@@ -82,7 +82,7 @@ void func1()
     double data64 = br.f64();
     str = br.cstr(5);
     str = br.mstr();
-    type1 = br.structure<Type1>();
+    type1 = br.st<Type1>();
 }
 ```
 
