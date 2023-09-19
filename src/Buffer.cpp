@@ -46,13 +46,13 @@ void					Buffer::push(vector<uint8_t> vecBytes)
 
 void					Buffer::pop(uint64_t uiEntryCount)
 {
-	//m_uiIndex -= uiEntryCount;
+	m_vecData.erase(m_vecData.end() - uiEntryCount);
+	m_uiIndex -= uiEntryCount;
 }
 
 
 void					Buffer::shift(uint64_t uiEntryCount)
 {
-	//m_uiIndex -= uiEntryCount;
 }
 
 void					Buffer::unshift(vector<uint8_t> vecBytes)

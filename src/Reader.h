@@ -22,21 +22,13 @@ public:
 	double						f64();
 	long double					f80();
 	
-	char*						cstrHeap(uint64_t uiLength);
 	char*						cstr(uint64_t uiLength);
-	std::string					str(uint64_t uiLength);
 	std::string					mstr();
 
 	template <class T>
 	void structure(T& structure)
 	{
-		cstr((char*)&structure, sizeof(T));
-	};
-
-	template <class T>
-	T* structureHeap()
-	{
-		return (T*) cstrHeap(sizeof(T));
+		*(T*)&structure = cstr(sizeof(T));
 	};
 
 	float*				vec2();

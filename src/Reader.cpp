@@ -19,7 +19,7 @@ Reader::~Reader()
 }
 
 // int
-uint8_t					Reader::ui8()
+uint8_t						Reader::ui8()
 {
 	return m_pBuffer->get(1)[0];
 }
@@ -59,30 +59,16 @@ double						Reader::f64()
 
 long double					Reader::f80()
 {
-	// todo
-	return *(long double*)m_pBuffer->get(10);
+	return f64();
 }
 
 // string
-char*					Reader::cstrHeap(uint64_t uiLength)
-{
-	uint8_t* pBuffer = new uint8_t[uiLength];
-	pBuffer = m_pBuffer->get(uiLength);
-	return (char*)pBuffer;
-}
-
-char*					Reader::cstr(uint64_t uiLength)
+char*						Reader::cstr(uint64_t uiLength)
 {
 	return (char*)m_pBuffer->get(uiLength);
 }
 
-string					Reader::str(uint64_t uiLength)
-{
-	string str((char*)m_pBuffer->get(uiLength));
-	return str;
-}
-
-string					Reader::mstr()
+string						Reader::mstr()
 {
 	uint64_t uiLength = ui64();
 	string str((char*)m_pBuffer->get(uiLength));
@@ -90,28 +76,28 @@ string					Reader::mstr()
 }
 
 // vector
-float*					Reader::vec2()
+float*						Reader::vec2()
 {
 	return (float*)m_pBuffer->get(8);
 }
 
-float*					Reader::vec3()
+float*						Reader::vec3()
 {
 	return (float*)m_pBuffer->get(12);
 }
 
 // matrix
-float*					Reader::mat34()
+float*						Reader::mat34()
 {
 	return (float*)m_pBuffer->get(48);
 }
 
-float*					Reader::mat43()
+float*						Reader::mat43()
 {
 	return (float*)m_pBuffer->get(48);
 }
 
-float*					Reader::mat44()
+float*						Reader::mat44()
 {
 	return (float*)m_pBuffer->get(64);
 }

@@ -23,7 +23,6 @@ public:
 	void					f80(long double fValue);
 	
 	void					cstr(char* pData, uint64_t uiLength);
-	void					str(std::string& strData);
 	void					mstr(std::string& strData);
 
 	void					vec2(float* pFloats);

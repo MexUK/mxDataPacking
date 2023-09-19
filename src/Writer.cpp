@@ -78,21 +78,13 @@ void					Writer::f64(double fValue)
 
 void					Writer::f80(long double fValue)
 {
-	// todo
-	//if (m_uiEndian == EEndian::INVERSE_ENDIAN)
-	//	fValue = _byteswap_uint64(fValue);
-	m_pBuffer->push((uint8_t*)&fValue, 10);
+	f64(fValue);
 }
 
 // string
 void					Writer::cstr(char* pData, uint64_t uiLength)
 {
 	m_pBuffer->push((uint8_t*)pData, uiLength);
-}
-
-void					Writer::str(string& strData)
-{
-	m_pBuffer->push((uint8_t*)strData.c_str(), strData.length());
 }
 
 void					Writer::mstr(string& strData)
