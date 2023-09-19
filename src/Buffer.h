@@ -18,12 +18,13 @@ public:
 		struct
 		{
 			uint64_t			m_uiDataLength;
+			uint64_t			m_uiDataAllocLength;
 			uint8_t*			m_pData;
 		};
 	};
 
 	Buffer(std::vector<uint8_t>& vecData);
-	Buffer(uint8_t* pBufferData, uint64_t uiBufferLen);
+	Buffer(uint8_t* pData, uint64_t uiDataLen, uint64_t uiDataAllocLength = 0);
 	Buffer();
 	~Buffer();
 
@@ -36,7 +37,7 @@ public:
 	uint8_t*				data();
 
 	uint64_t				left();
-	uint64_t				canRead(uint64_t uiByteCount);
+	uint64_t				canRW(uint64_t uiByteCount);
 
 	uint8_t*				get(uint64_t uiByteCount);
 	uint8_t*				get(uint64_t uiIndex, uint64_t uiByteCount);

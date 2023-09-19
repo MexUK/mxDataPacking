@@ -8,8 +8,8 @@ Reader::Reader(Buffer* pBuffer) :
 {
 }
 
-Reader::Reader(uint8_t* pBufferData, uint64_t uiBufferLen) :
-	RWBase(new Buffer(pBufferData, uiBufferLen), true)
+Reader::Reader(uint8_t* pData, uint64_t uiDataLen, uint64_t uiDataAllocLength) :
+	RWBase(new Buffer(pData, uiDataLen, uiDataAllocLength), true)
 {
 }
 

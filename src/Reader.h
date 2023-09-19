@@ -9,7 +9,7 @@ class mx::Reader : public mx::RWBase
 {
 public:
 	Reader(Buffer *pBuffer);
-	Reader(uint8_t* pBufferData, uint64_t uiBufferLen);
+	Reader(uint8_t* pData, uint64_t uiDataLen, uint64_t uiDataAllocLength = 0);
 	Reader(void);
 	~Reader(void);
 

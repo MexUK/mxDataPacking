@@ -8,8 +8,8 @@ Writer::Writer(Buffer* pBuffer) :
 {
 }
 
-Writer::Writer(uint8_t* pBufferData, uint64_t uiBufferLen) :
-	RWBase(new Buffer(pBufferData, uiBufferLen), true)
+Writer::Writer(uint8_t* pData, uint64_t uiDataLen, uint64_t uiDataAllocLength) :
+	RWBase(new Buffer(pData, uiDataLen, uiDataAllocLength), true)
 {
 }
 
