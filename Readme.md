@@ -81,14 +81,14 @@ namespace mx
 }
 ```
 
-EEndian
+mx::EEndian
 
 ```cpp
 mx::EEndian::INITIAL_ENDIAN;
 mx::EEndian::INVERSE_ENDIAN;
 ```
 
-Writer : public mx::RWBase
+mx::Writer : public mx::RWBase
 
 ```cpp
 mx::Writer::Writer(Buffer* pBuffer);
@@ -120,7 +120,7 @@ template <class T>
 void mx::Writer::structure(T& structure);
 ```
 
-Reader : public mx::RWBase
+mx::Reader : public mx::RWBase
 
 ```cpp
 mx::Reader::Reader(Buffer *pBuffer);
@@ -144,14 +144,14 @@ template <class T>
 void mx::Reader::structure(T& structure);
 ```
 
-RWBase
+mx::RWBase
 
 ```cpp
 uint8_t* mx::RWBase::data();
 size_t mx::RWBase::len();
 ```
 
-Buffer
+mx::Buffer
 
 ```cpp
 uint64_t mx::Buffer::m_uiIndex;
