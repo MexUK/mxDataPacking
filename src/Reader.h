@@ -26,9 +26,9 @@ public:
 	std::string					mstr();
 
 	template <class T>
-	void structure(T& structure)
+	T* structure(T& structure)
 	{
-		*(T*)&structure = cstr(sizeof(T));
+		return *(T*)&structure = cstr(sizeof(T));
 	};
 
 	float*				vec2();
