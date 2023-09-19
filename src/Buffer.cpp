@@ -8,14 +8,14 @@ using namespace mx;
 
 Buffer::Buffer(vector<uint8_t>& vecData) :
 	m_uiIndex(0),
-	m_uiStorage(EStorage::STD_VECTOR_UINT_8),
+	m_uiStorage(EStorage::STD_VECTOR),
 	m_vecData(vecData.begin(), vecData.end())
 {
 }
 
 Buffer::Buffer(uint8_t* pBufferData, uint64_t uiBufferLen) :
 	m_uiIndex(0),
-	m_uiStorage(EStorage::UINT_8_POINTER_AND_LENGTH),
+	m_uiStorage(EStorage::POINTER_AND_LENGTH),
 	m_uiDataLength(uiBufferLen),
 	m_pData(pBufferData)
 {
@@ -23,7 +23,7 @@ Buffer::Buffer(uint8_t* pBufferData, uint64_t uiBufferLen) :
 
 Buffer::Buffer() :
 	m_uiIndex(0),
-	m_uiStorage(EStorage::UINT_8_POINTER_AND_LENGTH),
+	m_uiStorage(EStorage::POINTER_AND_LENGTH),
 	m_uiDataLength(0),
 	m_pData(nullptr)
 {
@@ -58,10 +58,10 @@ uint64_t				Buffer::length()
 {
 	switch (m_uiStorage)
 	{
-	case EStorage::STD_VECTOR_UINT_8:
+	case EStorage::STD_VECTOR:
 		return m_vecData.size();
 
-	case EStorage::UINT_8_POINTER_AND_LENGTH:
+	case EStorage::POINTER_AND_LENGTH:
 		return m_uiDataLength;
 
 	default:
@@ -73,10 +73,10 @@ uint8_t*				Buffer::data()
 {
 	switch (m_uiStorage)
 	{
-	case EStorage::STD_VECTOR_UINT_8:
+	case EStorage::STD_VECTOR:
 		return m_vecData.data();
 
-	case EStorage::UINT_8_POINTER_AND_LENGTH:
+	case EStorage::POINTER_AND_LENGTH:
 		return m_pData;
 
 	default:
@@ -91,12 +91,12 @@ uint8_t*				Buffer::get(uint64_t uiByteCount)
 
 	switch (m_uiStorage)
 	{
-	case EStorage::STD_VECTOR_UINT_8:
+	case EStorage::STD_VECTOR:
 		pData = m_vecData.data() + m_uiIndex;
 		m_uiIndex += uiByteCount;
 		return pData;
 
-	case EStorage::UINT_8_POINTER_AND_LENGTH:
+	case EStorage::POINTER_AND_LENGTH:
 		pData = m_pData + m_uiIndex;
 		m_uiIndex += uiByteCount;
 		return pData;
@@ -112,12 +112,12 @@ uint8_t*				Buffer::get(uint64_t uiIndex, uint64_t uiByteCount)
 
 	switch (m_uiStorage)
 	{
-	case EStorage::STD_VECTOR_UINT_8:
+	case EStorage::STD_VECTOR:
 		pData = m_vecData.data() + uiIndex;
 		m_uiIndex += uiByteCount;
 		return pData;
 
-	case EStorage::UINT_8_POINTER_AND_LENGTH:
+	case EStorage::POINTER_AND_LENGTH:
 		pData = m_pData + uiIndex;
 		m_uiIndex += uiByteCount;
 		return pData;
@@ -132,12 +132,12 @@ void					Buffer::push(uint8_t* pData, uint64_t uiByteCount)
 {
 	switch (m_uiStorage)
 	{
-	case EStorage::STD_VECTOR_UINT_8:
+	case EStorage::STD_VECTOR:
 		m_vecData.insert(m_vecData.end(), pData, pData + uiByteCount);
 		m_uiIndex += uiByteCount;
 		break;
 
-	case EStorage::UINT_8_POINTER_AND_LENGTH:
+	case EStorage::POINTER_AND_LENGTH:
 		memcpy(m_pData + m_uiIndex, pData, uiByteCount);
 		m_uiIndex += uiByteCount;
 		m_uiDataLength += uiByteCount;
@@ -152,14 +152,14 @@ void					Buffer::push(vector<uint8_t>& vecData)
 
 	switch (m_uiStorage)
 	{
-	case EStorage::STD_VECTOR_UINT_8:
+	case EStorage::STD_VECTOR:
 		pData = m_vecData.data();
 		uiSize = vecData.size();
 		m_vecData.insert(m_vecData.end(), pData, pData + uiSize);
 		m_uiIndex += uiSize;
 		break;
 
-	case EStorage::UINT_8_POINTER_AND_LENGTH:
+	case EStorage::POINTER_AND_LENGTH:
 		pData = vecData.data();
 		uiSize = vecData.size();
 		memcpy(m_pData + m_uiIndex, pData, uiSize);
@@ -173,12 +173,12 @@ void					Buffer::pop(uint64_t uiByteCount)
 {
 	switch (m_uiStorage)
 	{
-	case EStorage::STD_VECTOR_UINT_8:
+	case EStorage::STD_VECTOR:
 		m_vecData.erase(m_vecData.end() - uiByteCount);
 		m_uiIndex -= uiByteCount;
 		break;
 
-	case EStorage::UINT_8_POINTER_AND_LENGTH:
+	case EStorage::POINTER_AND_LENGTH:
 		m_uiIndex -= uiByteCount;
 		m_uiDataLength -= uiByteCount;
 		break;
