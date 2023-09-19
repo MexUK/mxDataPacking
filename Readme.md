@@ -147,7 +147,7 @@ void mx::Reader::structure(T& structure);
 mx::RWBase
 
 ```cpp
-uint8_t* mx::RWBase::data();
+uint8_t* mx::RWBase::data(); // Returns a pointer to the start of the data, not the seek'd position.
 size_t mx::RWBase::len();
 ```
 
