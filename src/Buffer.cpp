@@ -54,12 +54,34 @@ uint64_t				Buffer::left()
 	return length() - m_uiIndex;
 }
 
+uint64_t				Buffer::canRead(uint64_t uiByteCount)
+{
+	if (uiByteCount < 1)
+		return true;
+	return (m_uiIndex + (uiByteCount - 1)) < length();
+}
+
 uint64_t				Buffer::length()
 {
 	switch (m_uiStorage)
 	{
 	case EStorage::STD_VECTOR:
 		return m_vecData.size();
+
+	case EStorage::POINTER_AND_LENGTH:
+		return m_uiDataLength;
+
+	default:
+		return 0;
+	}
+}
+
+uint64_t				Buffer::capacity()
+{
+	switch (m_uiStorage)
+	{
+	case EStorage::STD_VECTOR:
+		return m_vecData.capacity();
 
 	case EStorage::POINTER_AND_LENGTH:
 		return m_uiDataLength;
@@ -138,6 +160,11 @@ void					Buffer::push(uint8_t* pData, uint64_t uiByteCount)
 		break;
 
 	case EStorage::POINTER_AND_LENGTH:
+		if (!canRead(uiByteCount))
+		{
+			return;
+		}
+
 		memcpy(m_pData + m_uiIndex, pData, uiByteCount);
 		m_uiIndex += uiByteCount;
 		m_uiDataLength += uiByteCount;
@@ -160,6 +187,11 @@ void					Buffer::push(vector<uint8_t>& vecData)
 		break;
 
 	case EStorage::POINTER_AND_LENGTH:
+		if (!canRead(vecData.size()))
+		{
+			return;
+		}
+
 		pData = vecData.data();
 		uiSize = vecData.size();
 		memcpy(m_pData + m_uiIndex, pData, uiSize);
@@ -171,6 +203,11 @@ void					Buffer::push(vector<uint8_t>& vecData)
 
 void					Buffer::pop(uint64_t uiByteCount)
 {
+	if (length() < uiByteCount)
+	{
+		return;
+	}
+
 	switch (m_uiStorage)
 	{
 	case EStorage::STD_VECTOR:

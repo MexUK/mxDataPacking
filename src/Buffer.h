@@ -30,9 +30,13 @@ public:
 	uint8_t					storage();
 	void					seek(uint64_t uiByteIndex);
 	uint64_t				seek();
-	uint64_t				left();
+	
 	uint64_t				length();
+	uint64_t				capacity();
 	uint8_t*				data();
+
+	uint64_t				left();
+	uint64_t				canRead(uint64_t uiByteCount);
 
 	uint8_t*				get(uint64_t uiByteCount);
 	uint8_t*				get(uint64_t uiIndex, uint64_t uiByteCount);
