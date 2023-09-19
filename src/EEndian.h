@@ -4,6 +4,6 @@
 
 enum mx::EEndian
 {
-	NATURAL_ENDIAN		= 0,
+	INITIAL_ENDIAN		= 0,
 	INVERSE_ENDIAN		= 1
 };

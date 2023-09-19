@@ -8,6 +8,11 @@ Writer::Writer(Buffer* pBuffer) :
 {
 }
 
+Writer::Writer(uint8_t* pBufferData, uint64_t uiBufferLen) :
+	RWBase(new Buffer(pBufferData, uiBufferLen), true)
+{
+}
+
 Writer::Writer() :
 	RWBase(new Buffer(), true)
 {

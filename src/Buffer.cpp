@@ -5,6 +5,12 @@
 using namespace std;
 using namespace mx;
 
+Buffer::Buffer(uint8_t* pBufferData, uint64_t uiBufferLen) :
+	m_uiIndex(0),
+	m_vecData(pBufferData, pBufferData + uiBufferLen)
+{
+}
+
 Buffer::Buffer() :
 	m_uiIndex(0)
 {

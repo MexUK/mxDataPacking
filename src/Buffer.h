@@ -13,6 +13,7 @@ public:
 	std::vector<uint8_t>	m_vecData;
 
 public:
+	Buffer(uint8_t* pBufferData, uint64_t uiBufferLen);
 	Buffer();
 
 	uint8_t*				get(uint64_t uiByteCount);

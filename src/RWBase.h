@@ -17,6 +17,17 @@ public:
 	
 	void resetApiOwnedBuffer();
 
+	uint8_t* data();
+	size_t len();
+
+	template <class T>
+	T load(T value)
+	{
+
+
+		return value;
+	}
+
 	template <class T>
 	T format(T value)
 	{

@@ -9,6 +9,7 @@ class mx::Writer : public mx::RWBase
 {
 public:
 	Writer(Buffer* pBuffer);
+	Writer(uint8_t* pBufferData, uint64_t uiBufferLen);
 	Writer(void);
 	~Writer(void);
 
