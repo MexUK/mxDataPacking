@@ -59,14 +59,15 @@ void func1()
     bw.mstr(str);
     Type1 type1;
     bw.structure(type1);
+
     sendPacket(bw.data(), bw.len());
 
     // read
 
     uint8_t packet[4096];
     uint64_t packetLen;
-    packetLen = readPacket(packet);
 
+    packetLen = readPacket(packet);
     Reader br(packet, packetLen);
 
     uint8_t data1 = br.ui8();
