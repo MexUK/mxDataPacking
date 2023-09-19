@@ -1,5 +1,6 @@
-#include "Buffer.h"
 #include <iterator>
+
+#include "Buffer.h"
 
 using namespace std;
 using namespace mx;

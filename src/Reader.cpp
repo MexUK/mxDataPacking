@@ -1,6 +1,4 @@
 #include "Reader.h"
-//#include "Static/String.h" // temp - for unpack754_32/64/80
-#include "EEndian.h"
 
 using namespace std;
 using namespace mx;

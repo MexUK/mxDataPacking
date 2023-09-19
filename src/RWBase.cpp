@@ -1,12 +1,13 @@
-#include "RWBase.h"
 #include <cstdint>
+
+#include "RWBase.h"
 
 using namespace mx;
 
 RWBase::RWBase(Buffer* pBuffer, bool bBufferApiOwned) :
 	m_pBuffer(pBuffer),
 	m_bBufferApiOwned(bBufferApiOwned),
-	m_uiEndian(LITTLE_ENDIAN)
+	m_uiEndian(NATURAL_ENDIAN)
 {
 }
 

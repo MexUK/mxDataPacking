@@ -1,9 +1,10 @@
 #pragma once
 
-#include "mx.h"
-#include "EEndian.h"
 #include <cstdint>
 #include <vector>
+
+#include "mx.h"
+#include "EEndian.h"
 
 #define MX_OCTET_COMBINATION_COUNT			256
 #define MX_TWO_OCTETS_COMBINATION_COUNT		65536
@@ -16,8 +17,9 @@
 class mx::Buffer
 {
 public:
+	Formatter*				m_pFormatter;
+	uint64_t				m_uiIndex;
 	std::vector<uint8_t>	m_vecData;
-	unsigned int			m_uiIndex;
 
 public:
 	Buffer();
