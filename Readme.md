@@ -36,6 +36,7 @@ example.cpp
 #include "mx.h"
 #include "Writer.h"
 #include "Reader.h"
+#include "example.h"
 
 void func1()
 {
