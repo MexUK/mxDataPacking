@@ -13,7 +13,7 @@ public:
 
 public:
 	RWBase(Buffer *pBuffer, bool bBufferApiOwned);
-	~RWBase();
+	virtual ~RWBase();
 	
 	uint8_t* data();
 	uint64_t length();
