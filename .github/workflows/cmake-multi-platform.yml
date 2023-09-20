@@ -37,8 +37,8 @@ jobs:
             c_compiler: gcc
             cpp_compiler: g++
           - os: macOS-latest
-            c_compiler: gcc
-            cpp_compiler: g++
+            c_compiler: clang
+            cpp_compiler: clang++
         exclude:
           - os: windows-latest
             c_compiler: gcc
