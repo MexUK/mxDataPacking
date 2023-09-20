@@ -12,6 +12,7 @@ All code in this library is in a namespace called mx.
 **License**
 
 This library has the MIT license.  
+  
 Meaning you can use/edit your copy of this library, even commercially, but include the license file.
 
 -----
