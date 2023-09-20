@@ -128,7 +128,6 @@ mx::Buffer
 mx::Buffer::Buffer(std::vector<uint8_t>& vecData);
 mx::Buffer::Buffer(uint8_t* pData, uint64_t uiDataLen, uint64_t uiDataAllocLength = 0); // readonly buffer
 mx::Buffer::Buffer(); // must set m_uiStorage
-mx::Buffer::Buffer();
 
 uint8_t mx::Buffer::storage();
 void mx::Buffer::seek(uint64_t uiByteIndex);
