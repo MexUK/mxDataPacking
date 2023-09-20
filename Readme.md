@@ -11,6 +11,13 @@ A C++ library with no dependencies, for packing/unpacking binary data, with an o
 
 This C++ library aims to be easy to use.  
   
+The API includes classes Writer and Reader which both extend RWBase, and RWBase stores a Buffer object.  
+The Buffer class, either uses either a std::vector<uint8_t> or a pointer, data length, and alloc length.
+
+-----
+
+**Examples**
+
 ```cpp
 Writer bw;
 bw.ui8(10);
@@ -18,16 +25,15 @@ bw.ui64(20);
 bw.cstr("example");
 //sendOrWrite(bw.data(), bw.length());
 
-//uint8_t* pBuffer =
-//uint64_t uiBufferLen =
-Reader br(pBuffer, uiBufferLen);
+//uint8_t* pData =
+//uint64_t uiDataLen =
+Reader br(pData, uiDataLen);
 int a = br.ui8();
 int b = br.ui64();
 string c = br.cstr("example");
 ```
-  
-The API includes classes Writer and Reader which both extend RWBase, and RWBase stores a Buffer object.  
-The Buffer class, either uses either a std::vector<uint8_t> or a pointer, data length, and alloc length.
+
+Please check the examples folder for other usage examples of this library.
 
 -----
 
@@ -38,12 +44,6 @@ This library has the MIT license.
 Meaning you can use/edit your copy of this library, even commercially, but include the license file.  
   
 Please check the license file named "LICENSE" in the same directory as this Readme.md file.
-
------
-
-**Examples**
-
-Please check the examples folder for example usage of this library.
 
 -----
 
@@ -163,9 +163,9 @@ static T mx::RWBase::endian(T value);
 mx::Buffer
 
 ```cpp
-mx::Buffer::Buffer(std::vector<uint8_t>& vecData);
+mx::Buffer::Buffer(std::vector<uint8_t>& vecData); // dynamic buffer
 mx::Buffer::Buffer(uint8_t* pData, uint64_t uiDataLen, uint64_t uiDataAllocLength = 0); // readonly buffer
-mx::Buffer::Buffer(); // must set m_uiStorage
+mx::Buffer::Buffer(); // dynamic buffer
 
 uint8_t mx::Buffer::storage();
 void mx::Buffer::seek(uint64_t uiByteIndex);
