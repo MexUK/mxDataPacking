@@ -183,7 +183,7 @@ uint8_t* mx::Buffer::get(uint64_t uiIndex, uint64_t uiByteCount);
 void mx::Buffer::seek(uint64_t uiIndex);
 
 void mx::Buffer::push(uint8_t* pData, uint64_t uiByteCount);
-void mx::Buffer::push(std::vector<uint8_t> vecData);
+void mx::Buffer::push(std::vector<uint8_t>& vecData);
 void mx::Buffer::pop(uint64_t uiByteCount);
 ```
 
