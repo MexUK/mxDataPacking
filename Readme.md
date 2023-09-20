@@ -98,6 +98,7 @@ mx
 namespace mx
 {
 	enum EEndian;
+	enum EStorage;
 	class Buffer;
 	class RWBase;
 	class Reader;
@@ -108,15 +109,22 @@ namespace mx
 mx::EEndian
 
 ```cpp
-mx::EEndian::INITIAL_ENDIAN;
-mx::EEndian::INVERSE_ENDIAN;
+mx::EEndian::INITIAL_ENDIAN = 0;
+mx::EEndian::INVERSE_ENDIAN = 1;
+```
+
+mx::EStorage
+
+```cpp
+mx::EStorage::STD_VECTOR = 0;
+mx::EStorage::POINTER_AND_LENGTH = 1;
 ```
 
 mx::Writer : public mx::RWBase
 
 ```cpp
 mx::Writer::Writer(Buffer* pBuffer);
-mx::Writer::Writer(uint8_t* pBufferData, uint64_t uiBufferLen); // Constructs Buffer.
+mx::Writer::Writer(uint8_t* pData, uint64_t uiDataLen, uint64_t uiDataAllocLength = 0);
 mx::Writer::Writer(void);
 mx::Writer::~Writer(void);
 
@@ -141,14 +149,14 @@ void mx::Writer::mat43(float* pFloats);
 void mx::Writer::mat44(float* pFloats);
 
 template <class T>
-void mx::Writer::structure(T& structure);
+void mx::Writer::st(T& structure);
 ```
 
 mx::Reader : public mx::RWBase
 
 ```cpp
 mx::Reader::Reader(Buffer *pBuffer);
-mx::Reader::Reader(uint8_t* pBufferData, uint64_t uiBufferLen); // Constructs Buffer.
+mx::Reader::Reader(uint8_t* pData, uint64_t uiDataLen, uint64_t uiDataAllocLength = 0);
 mx::Reader::Reader(void);
 mx::Reader::~Reader(void);
 
@@ -165,32 +173,48 @@ char* mx::Reader::cstr(uint64_t uiLength);
 std::string mx::Reader::mstr();
 
 template <class T>
-T mx::Reader::structure();
+T mx::Reader::st();
 ```
 
 mx::RWBase
 
 ```cpp
 uint8_t* mx::RWBase::data(); // Returns a pointer to the start of the data.
-size_t mx::RWBase::len(); // Returns the total length of the data.
+size_t mx::RWBase::length(); // Returns the total length of the data.
+
+template <class T>
+T mx::RWBase::format(T value);
+
+template <class T>
+static T mx::RWBase::endian(T value);
 ```
 
 mx::Buffer
 
 ```cpp
-uint64_t mx::Buffer::m_uiIndex;
-std::vector<uint8_t> mx::Buffer::m_vecData;
-
-mx::Buffer::Buffer(uint8_t* pBufferData, uint64_t uiBufferLen);
+mx::Buffer::Buffer(std::vector<uint8_t>& vecData);
+mx::Buffer::Buffer(uint8_t* pData, uint64_t uiDataLen, uint64_t uiDataAllocLength = 0); // readonly buffer
+mx::Buffer::Buffer(); // must set m_uiStorage
 mx::Buffer::Buffer();
+
+uint8_t mx::Buffer::storage();
+void mx::Buffer::seek(uint64_t uiByteIndex);
+uint64_t mx::Buffer::seek();
+
+uint64_t mx::Buffer::length();
+uint64_t mx::Buffer::capacity();
+uint8_t* mx::Buffer::data();
+
+uint64_t mx::Buffer::left();
+uint64_t mx::Buffer::canRW(uint64_t uiByteCount);
 
 uint8_t* mx::Buffer::get(uint64_t uiByteCount);
 uint8_t* mx::Buffer::get(uint64_t uiIndex, uint64_t uiByteCount);
 void mx::Buffer::seek(uint64_t uiIndex);
 
-void mx::Buffer::push(uint8_t* pData, uint64_t uiDataLen);
-void mx::Buffer::push(std::vector<uint8_t> vecBytes);
-void mx::Buffer::pop(uint64_t uiEntryCount);
+void mx::Buffer::push(uint8_t* pData, uint64_t uiByteCount);
+void mx::Buffer::push(std::vector<uint8_t> vecData);
+void mx::Buffer::pop(uint64_t uiByteCount);
 ```
 
 -----
