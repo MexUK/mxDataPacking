@@ -1,6 +1,6 @@
 **mx Data Packing (C++)**
 
-![Build Status](https://github.com/github/docs/actions/workflows/msbuild/badge.svg)
+![Build Status](https://github.com/github/docs/actions/workflows/MSBuild/badge.svg)
 
 A C++ library with no dependencies, for packing/unpacking binary data, with a byte-vector buffer, in a namespace called mx.
 
