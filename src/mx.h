@@ -1,9 +1,11 @@
 #pragma once
 
+#include <cstdint>
+
 namespace mx
 {
-	enum EEndian;
-	enum EStorage;
+	enum EEndian : uint8_t;
+	enum EStorage : uint8_t;
 	class Buffer;
 	class RWBase;
 	class Reader;
