@@ -9,7 +9,7 @@ A C++ library with no dependencies, for packing/unpacking binary data, with an o
 
 **Introduction**
 
-This C++ library is used for packing and unpacking binary data, and aims to be easy to use.  
+This C++ library aims to be easy to use.  
   
 ```cpp
 Writer bw;
