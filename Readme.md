@@ -3,9 +3,7 @@
 ![Build Status](https://github.com/MexUK/mxDataPacking/actions/workflows/msbuild.yml/badge.svg)  
 ![Build Status](https://github.com/MexUK/mxDataPacking/actions/workflows/cmake-win-linux-mac.yml/badge.svg)
 
-A C++ library with no dependencies, for packing/unpacking binary data, with an optional memory buffer.  
-  
-All code in this library is in a namespace called mx.
+A C++ library with no dependencies, for packing/unpacking binary data, with an optional memory buffer.
 
 -----
 
@@ -29,7 +27,7 @@ string c = br.cstr("example");
 ```
   
 The API includes classes Writer and Reader which both extend RWBase, and RWBase stores a Buffer object.  
-The Buffer class, either uses either a std::vector<uint8_t> or 3 components which are a pointer, a data length, and an alloc length.
+The Buffer class, either uses either a std::vector<uint8_t> or a pointer, data length, and alloc length.
 
 -----
 
