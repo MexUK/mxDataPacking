@@ -26,10 +26,7 @@ Buffer::Buffer(uint8_t* pData, uint64_t uiDataLen, uint64_t uiDataAllocLength) :
 
 Buffer::Buffer() :
 	m_uiIndex(0),
-	m_uiStorage(EStorage::POINTER_READONLY),
-	m_uiDataLength(0),
-	m_uiDataAllocLength(0),
-	m_pData(nullptr)
+	m_uiStorage(EStorage::STD_VECTOR)
 {
 }
 
