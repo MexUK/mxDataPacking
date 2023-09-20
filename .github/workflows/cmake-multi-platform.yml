@@ -26,6 +26,7 @@ jobs:
         os: [ubuntu-latest, macOS-latest, windows-latest]
         build_type: [Release,Debug]
         c_compiler: [gcc, clang, cl]
+        cpp_compiler: [g++]
         include:
           - os: windows-latest
             c_compiler: cl
