@@ -47,6 +47,11 @@ uint8_t					Buffer::storage()
 
 void					Buffer::seek(uint64_t uiByteIndex)
 {
+	if (uiByteIndex >= capacity())
+	{
+		return;
+	}
+
 	m_uiIndex = uiByteIndex;
 }
 
