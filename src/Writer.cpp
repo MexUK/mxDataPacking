@@ -31,44 +31,68 @@ void					Writer::ui8(uint8_t uiValue)
 
 void					Writer::ui16(uint16_t uiValue)
 {
-	if (m_uiEndian == EEndian::INVERSE_ENDIAN)
-		uiValue = format(uiValue);
+	uiValue = format(uiValue);
 	m_pBuffer->push((uint8_t*)&uiValue, 2);
 }
 
 void					Writer::ui24(uint32_t uiValue)
 {
-	if (m_uiEndian == EEndian::INVERSE_ENDIAN)
-		uiValue = format(uiValue);
+	uiValue = format(uiValue);
 	m_pBuffer->push((uint8_t*)&uiValue, 3);
 }
 
 void					Writer::ui32(uint32_t uiValue)
 {
-	if (m_uiEndian == EEndian::INVERSE_ENDIAN)
-		uiValue = format(uiValue);
+	uiValue = format(uiValue);
 	m_pBuffer->push((uint8_t*)&uiValue, 4);
 }
 
 void					Writer::ui64(uint64_t uiValue)
 {
-	if (m_uiEndian == EEndian::INVERSE_ENDIAN)
-		uiValue = format(uiValue);
+	uiValue = format(uiValue);
 	m_pBuffer->push((uint8_t*)&uiValue, 8);
+}
+
+
+void					Writer::i8(int8_t iValue)
+{
+	m_pBuffer->push((uint8_t*)&iValue, 1);
+}
+
+void					Writer::i16(int16_t iValue)
+{
+	iValue = format(iValue);
+	m_pBuffer->push((uint8_t*)&iValue, 2);
+}
+
+void					Writer::i24(int32_t iValue)
+{
+	iValue = format(iValue);
+	m_pBuffer->push((uint8_t*)&iValue, 3);
+}
+
+void					Writer::i32(int32_t iValue)
+{
+	iValue = format(iValue);
+	m_pBuffer->push((uint8_t*)&iValue, 4);
+}
+
+void					Writer::i64(int64_t iValue)
+{
+	iValue = format(iValue);
+	m_pBuffer->push((uint8_t*)&iValue, 8);
 }
 
 // float
 void					Writer::f32(float fValue)
 {
-	if (m_uiEndian == EEndian::INVERSE_ENDIAN)
-		fValue = format(fValue);
+	fValue = format(fValue);
 	m_pBuffer->push((uint8_t*)&fValue, 4);
 }
 
 void					Writer::f64(double fValue)
 {
-	if (m_uiEndian == EEndian::INVERSE_ENDIAN)
-		fValue = format(fValue);
+	fValue = format(fValue);
 	m_pBuffer->push((uint8_t*)&fValue, 8);
 }
 

@@ -20,6 +20,12 @@ public:
 	void					ui32(uint32_t uiValue);
 	void					ui64(uint64_t uiValue);
 	
+	void					i8(int8_t iValue);
+	void					i16(int16_t iValue);
+	void					i24(int32_t iValue);
+	void					i32(int32_t iValue);
+	void					i64(int64_t iValue);
+	
 	void					f32(float fValue);
 	void					f64(double fValue);
 	

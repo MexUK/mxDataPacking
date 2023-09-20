@@ -49,6 +49,32 @@ uint64_t					Reader::ui64()
 	return format(*(uint64_t*)m_pBuffer->get(8));
 }
 
+
+int8_t						Reader::i8()
+{
+	return *(int8_t*)m_pBuffer->get(1)[0];
+}
+
+int16_t						Reader::i16()
+{
+	return format(*(int16_t*)m_pBuffer->get(2));
+}
+
+int32_t						Reader::i24()
+{
+	return format(*(int32_t*)m_pBuffer->get(3));
+}
+
+int32_t						Reader::i32()
+{
+	return format(*(int32_t*)m_pBuffer->get(4));
+}
+
+int64_t						Reader::i64()
+{
+	return format(*(int64_t*)m_pBuffer->get(8));
+}
+
 // float
 float						Reader::f32()
 {
