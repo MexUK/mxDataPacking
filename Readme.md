@@ -149,7 +149,7 @@ mx::RWBase
 
 ```cpp
 uint8_t* mx::RWBase::data(); // Returns a pointer to the start of the data.
-size_t mx::RWBase::length(); // Returns the total length of the data.
+uint64_t mx::RWBase::length(); // Returns the total length of the data.
 
 template <class T>
 T mx::RWBase::format(T value);
