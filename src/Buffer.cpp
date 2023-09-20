@@ -15,7 +15,7 @@ Buffer::Buffer(vector<uint8_t>& vecData) :
 
 Buffer::Buffer(uint8_t* pData, uint64_t uiDataLen, uint64_t uiDataAllocLength) :
 	m_uiIndex(0),
-	m_uiStorage(EStorage::POINTER_AND_LENGTH),
+	m_uiStorage(EStorage::POINTER_AND_LENGTHS),
 	m_uiDataLength(uiDataLen),
 	m_uiDataAllocLength(0),
 	m_pData(pData)
@@ -28,7 +28,7 @@ Buffer::Buffer(uint8_t* pData, uint64_t uiDataLen, uint64_t uiDataAllocLength) :
 
 Buffer::Buffer() :
 	m_uiIndex(0),
-	m_uiStorage(EStorage::POINTER_AND_LENGTH),
+	m_uiStorage(EStorage::POINTER_AND_LENGTHS),
 	m_uiDataLength(0),
 	m_uiDataAllocLength(0),
 	m_pData(nullptr)
@@ -79,7 +79,7 @@ uint64_t				Buffer::length()
 	case EStorage::STD_VECTOR:
 		return m_vecData.size();
 
-	case EStorage::POINTER_AND_LENGTH:
+	case EStorage::POINTER_AND_LENGTHS:
 		return m_uiDataLength;
 
 	default:
@@ -94,7 +94,7 @@ uint64_t				Buffer::capacity()
 	case EStorage::STD_VECTOR:
 		return m_vecData.capacity();
 
-	case EStorage::POINTER_AND_LENGTH:
+	case EStorage::POINTER_AND_LENGTHS:
 		return m_uiDataAllocLength;
 
 	default:
@@ -109,7 +109,7 @@ uint8_t*				Buffer::data()
 	case EStorage::STD_VECTOR:
 		return m_vecData.data();
 
-	case EStorage::POINTER_AND_LENGTH:
+	case EStorage::POINTER_AND_LENGTHS:
 		return m_pData;
 
 	default:
@@ -129,7 +129,7 @@ uint8_t*				Buffer::get(uint64_t uiByteCount)
 		m_uiIndex += uiByteCount;
 		return pData;
 
-	case EStorage::POINTER_AND_LENGTH:
+	case EStorage::POINTER_AND_LENGTHS:
 		pData = m_pData + m_uiIndex;
 		m_uiIndex += uiByteCount;
 		return pData;
@@ -155,7 +155,7 @@ uint8_t*				Buffer::get(uint64_t uiIndex, uint64_t uiByteCount)
 		m_uiIndex += uiByteCount;
 		return pData;
 
-	case EStorage::POINTER_AND_LENGTH:
+	case EStorage::POINTER_AND_LENGTHS:
 		pData = m_pData + uiIndex;
 		m_uiIndex += uiByteCount;
 		return pData;
@@ -175,7 +175,7 @@ void					Buffer::push(uint8_t* pData, uint64_t uiByteCount)
 		m_uiIndex += uiByteCount;
 		break;
 
-	case EStorage::POINTER_AND_LENGTH:
+	case EStorage::POINTER_AND_LENGTHS:
 		if (!canRW(uiByteCount))
 		{
 			return;
@@ -202,7 +202,7 @@ void					Buffer::push(vector<uint8_t>& vecData)
 		m_uiIndex += uiSize;
 		break;
 
-	case EStorage::POINTER_AND_LENGTH:
+	case EStorage::POINTER_AND_LENGTHS:
 		if (!canRW(vecData.size()))
 		{
 			return;
@@ -231,7 +231,7 @@ void					Buffer::pop(uint64_t uiByteCount)
 		m_uiIndex -= uiByteCount;
 		break;
 
-	case EStorage::POINTER_AND_LENGTH:
+	case EStorage::POINTER_AND_LENGTHS:
 		m_uiIndex -= uiByteCount;
 		m_uiDataLength -= uiByteCount;
 		break;
