@@ -26,7 +26,7 @@ Reader::~Reader()
 // int
 uint8_t						Reader::ui8()
 {
-	return m_pBuffer->get(sizeof(uint8_t))[0];
+	return *m_pBuffer->get(sizeof(uint8_t));
 }
 
 uint16_t					Reader::ui16()
@@ -52,7 +52,7 @@ uint64_t					Reader::ui64()
 
 int8_t						Reader::i8()
 {
-	return *(int8_t*)m_pBuffer->get(sizeof(int8_t))[0];
+	return *(int8_t*)*m_pBuffer->get(sizeof(int8_t));
 }
 
 int16_t						Reader::i16()
