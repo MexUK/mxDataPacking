@@ -93,7 +93,7 @@ void mx::Writer::ui64(uint64_t uiValue);
 void mx::Writer::i8(int8_t iValue);
 void mx::Writer::i16(int16_t iValue);
 void mx::Writer::i24(int32_t iValue);
-void mx::Writer::i32(uint32_t iValue);
+void mx::Writer::i32(int32_t iValue);
 void mx::Writer::i64(int64_t iValue);
 	
 void mx::Writer::f32(float fValue);
