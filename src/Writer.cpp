@@ -1,4 +1,5 @@
 #include "Writer.h"
+#include "Buffer.h"
 
 using namespace std;
 using namespace mx;
