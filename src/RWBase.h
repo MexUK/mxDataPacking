@@ -32,6 +32,27 @@ public:
 	template <class T>
 	static T endian(T value)
 	{
+#if defined(__GNUC__) || defined(__GNUG__)
+		switch (sizeof(T))
+		{
+		case 1:
+			return value;
+		case 2:
+			return __builtin_bswap16(value);
+		case 3:
+		{
+			uint8_t uiPart1 = ((uint64_t)value) & 0xFF;
+			uint16_t uiPart2 = (((uint64_t)value) >> 8) & 0xFFFF;
+			uiPart2 = __builtin_bswap16(uiPart2);
+			return uiPart1 | (uiPart2 << 8);
+		}
+		case 4:
+			return __builtin_bswap32(value);
+		case 8:
+			return __builtin_bswap64(value);
+		default:
+			return value;
+#elif defined(_MSC_VER)
 		switch (sizeof(T))
 		{
 		case 1:
@@ -51,6 +72,7 @@ public:
 			return _byteswap_uint64(value);
 		default:
 			return value;
+#endif
 		}
 	}
 
