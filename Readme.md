@@ -105,6 +105,9 @@ void mx::Writer::mat44(float* pFloats);
 
 template <class T>
 void mx::Writer::st(T& structure);
+
+template <class T>
+void mx::Writer::st(T* pStructure);
 ```
 
 mx::Reader : public mx::RWBase
@@ -127,8 +130,19 @@ double mx::Reader::f64();
 char* mx::Reader::cstr(uint64_t uiLength);
 std::string mx::Reader::mstr();
 
+float* mx::Reader::vec2();
+float* mx::Reader::vec3();
+float* mx::Reader::vec4();
+
+float* mx::Reader::mat34();
+float* mx::Reader::mat43();
+float* mx::Reader::mat44();
+
 template <class T>
 T mx::Reader::st();
+
+template <class T>
+T* mx::Reader::st();
 ```
 
 mx::RWBase
