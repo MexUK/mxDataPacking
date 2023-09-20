@@ -4,6 +4,7 @@
 
 #include "mx.h"
 #include "RWBase.h"
+#include "Buffer.h"
 
 class mx::Writer : public mx::RWBase
 {
