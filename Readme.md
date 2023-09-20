@@ -11,8 +11,10 @@ A C++ library with no dependencies, for packing/unpacking binary data, with an o
 
 This C++ library aims to be easy to use.  
   
-The API includes classes Writer and Reader which both extend RWBase, and RWBase stores a Buffer object.  
-The Buffer class, either uses either a std::vector<uint8_t> or a pointer, data length, and alloc length.
+The library works with bytes (8 bits) at a time.  
+  
+The API includes classes Writer and Reader which both extend RWBase.  
+RWBase stores Buffer, Buffer either uses a std::vector<uint8_t> or a pointer with lengths.
 
 -----
 
