@@ -83,12 +83,18 @@ mx::Writer : public mx::RWBase
 mx::Writer::Writer(Buffer* pBuffer);
 mx::Writer::Writer(uint8_t* pData, uint64_t uiDataLen, uint64_t uiDataAllocLength = 0);
 mx::Writer::Writer(void);
-
+	
 void mx::Writer::ui8(uint8_t uiValue);
 void mx::Writer::ui16(uint16_t uiValue);
 void mx::Writer::ui24(uint32_t uiValue);
 void mx::Writer::ui32(uint32_t uiValue);
 void mx::Writer::ui64(uint64_t uiValue);
+	
+void mx::Writer::i8(int8_t iValue);
+void mx::Writer::i16(int16_t iValue);
+void mx::Writer::i24(int32_t iValue);
+void mx::Writer::i32(uint32_t iValue);
+void mx::Writer::i64(int64_t iValue);
 	
 void mx::Writer::f32(float fValue);
 void mx::Writer::f64(double fValue);
@@ -123,6 +129,12 @@ uint16_t mx::Reader::ui16();
 uint32_t mx::Reader::ui24();
 uint32_t mx::Reader::ui32();
 uint64_t mx::Reader::ui64();
+
+int8_t mx::Reader::i8();
+int16_t mx::Reader::i16();
+int32_t mx::Reader::i24();
+int32_t mx::Reader::i32();
+int64_t mx::Reader::i64();
 
 float mx::Reader::f32();
 double mx::Reader::f64();
