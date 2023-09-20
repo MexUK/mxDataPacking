@@ -26,64 +26,64 @@ Reader::~Reader()
 // int
 uint8_t						Reader::ui8()
 {
-	return m_pBuffer->get(1)[0];
+	return m_pBuffer->get(sizeof(uint8_t))[0];
 }
 
 uint16_t					Reader::ui16()
 {
-	return format(*(uint16_t*)m_pBuffer->get(2));
+	return format(*(uint16_t*)m_pBuffer->get(sizeof(uint16_t)));
 }
 
 uint32_t					Reader::ui24()
 {
-	return format(*(uint32_t*)m_pBuffer->get(3));
+	return format(*(uint32_t*)m_pBuffer->get(sizeof(uint16_t) + sizeof(uint8_t)));
 }
 
 uint32_t					Reader::ui32()
 {
-	return format(*(uint32_t*)m_pBuffer->get(4));
+	return format(*(uint32_t*)m_pBuffer->get(sizeof(uint32_t)));
 }
 
 uint64_t					Reader::ui64()
 {
-	return format(*(uint64_t*)m_pBuffer->get(8));
+	return format(*(uint64_t*)m_pBuffer->get(sizeof(uint64_t)));
 }
 
 
 int8_t						Reader::i8()
 {
-	return *(int8_t*)m_pBuffer->get(1)[0];
+	return *(int8_t*)m_pBuffer->get(sizeof(int8_t))[0];
 }
 
 int16_t						Reader::i16()
 {
-	return format(*(int16_t*)m_pBuffer->get(2));
+	return format(*(int16_t*)m_pBuffer->get(sizeof(int16_t)));
 }
 
 int32_t						Reader::i24()
 {
-	return format(*(int32_t*)m_pBuffer->get(3));
+	return format(*(int32_t*)m_pBuffer->get(sizeof(int16_t) + sizeof(int8_t)));
 }
 
 int32_t						Reader::i32()
 {
-	return format(*(int32_t*)m_pBuffer->get(4));
+	return format(*(int32_t*)m_pBuffer->get(sizeof(int32_t)));
 }
 
 int64_t						Reader::i64()
 {
-	return format(*(int64_t*)m_pBuffer->get(8));
+	return format(*(int64_t*)m_pBuffer->get(sizeof(int64_t)));
 }
 
 // float
 float						Reader::f32()
 {
-	return format(*(float*)m_pBuffer->get(4));
+	return format(*(float*)m_pBuffer->get(sizeof(float)));
 }
 
 double						Reader::f64()
 {
-	return format(*(double*)m_pBuffer->get(8));
+	return format(*(double*)m_pBuffer->get(sizeof(double)));
 }
 
 // string
@@ -102,31 +102,32 @@ string						Reader::mstr()
 // vector
 float*						Reader::vec2()
 {
-	return (float*)m_pBuffer->get(8);
+	return (float*)m_pBuffer->get(2 * sizeof(float));
 }
 
 float*						Reader::vec3()
 {
-	return (float*)m_pBuffer->get(12);
+	return (float*)m_pBuffer->get(3 * sizeof(float));
 }
 
 float*						Reader::vec4()
 {
-	return (float*)m_pBuffer->get(16);
+	return (float*)m_pBuffer->get(4 * sizeof(float));
 }
 
 // matrix
 float*						Reader::mat34()
 {
-	return (float*)m_pBuffer->get(48);
+	return (float*)m_pBuffer->get(3 * 4 * sizeof(float));
 }
 
 float*						Reader::mat43()
 {
-	return (float*)m_pBuffer->get(48);
+	return (float*)m_pBuffer->get(4 * 3 * sizeof(float));
 }
 
 float*						Reader::mat44()
 {
-	return (float*)m_pBuffer->get(64);
+	return (float*)m_pBuffer->get(4 * 4 * sizeof(float));
 }
+

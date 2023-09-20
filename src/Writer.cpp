@@ -26,74 +26,74 @@ Writer::~Writer()
 // int
 void					Writer::ui8(uint8_t uiValue)
 {
-	m_pBuffer->push(&uiValue, 1);
+	m_pBuffer->push(&uiValue, sizeof(uint8_t));
 }
 
 void					Writer::ui16(uint16_t uiValue)
 {
 	uiValue = format(uiValue);
-	m_pBuffer->push((uint8_t*)&uiValue, 2);
+	m_pBuffer->push((uint8_t*)&uiValue, sizeof(uint16_t));
 }
 
 void					Writer::ui24(uint32_t uiValue)
 {
 	uiValue = format(uiValue);
-	m_pBuffer->push((uint8_t*)&uiValue, 3);
+	m_pBuffer->push((uint8_t*)&uiValue, sizeof(uint16_t) + sizeof(uint8_t));
 }
 
 void					Writer::ui32(uint32_t uiValue)
 {
 	uiValue = format(uiValue);
-	m_pBuffer->push((uint8_t*)&uiValue, 4);
+	m_pBuffer->push((uint8_t*)&uiValue, sizeof(uint32_t));
 }
 
 void					Writer::ui64(uint64_t uiValue)
 {
 	uiValue = format(uiValue);
-	m_pBuffer->push((uint8_t*)&uiValue, 8);
+	m_pBuffer->push((uint8_t*)&uiValue, sizeof(uint64_t));
 }
 
 
 void					Writer::i8(int8_t iValue)
 {
-	m_pBuffer->push((uint8_t*)&iValue, 1);
+	m_pBuffer->push((uint8_t*)&iValue, sizeof(int8_t));
 }
 
 void					Writer::i16(int16_t iValue)
 {
 	iValue = format(iValue);
-	m_pBuffer->push((uint8_t*)&iValue, 2);
+	m_pBuffer->push((uint8_t*)&iValue, sizeof(int16_t));
 }
 
 void					Writer::i24(int32_t iValue)
 {
 	iValue = format(iValue);
-	m_pBuffer->push((uint8_t*)&iValue, 3);
+	m_pBuffer->push((uint8_t*)&iValue, sizeof(int16_t) + sizeof(int8_t));
 }
 
 void					Writer::i32(int32_t iValue)
 {
 	iValue = format(iValue);
-	m_pBuffer->push((uint8_t*)&iValue, 4);
+	m_pBuffer->push((uint8_t*)&iValue, sizeof(int32_t));
 }
 
 void					Writer::i64(int64_t iValue)
 {
 	iValue = format(iValue);
-	m_pBuffer->push((uint8_t*)&iValue, 8);
+	m_pBuffer->push((uint8_t*)&iValue, sizeof(int64_t));
 }
 
 // float
 void					Writer::f32(float fValue)
 {
 	fValue = format(fValue);
-	m_pBuffer->push((uint8_t*)&fValue, 4);
+	m_pBuffer->push((uint8_t*)&fValue, sizeof(float));
 }
 
 void					Writer::f64(double fValue)
 {
 	fValue = format(fValue);
-	m_pBuffer->push((uint8_t*)&fValue, 8);
+	m_pBuffer->push((uint8_t*)&fValue, sizeof(double));
 }
 
 // string
@@ -111,32 +111,32 @@ void					Writer::mstr(string& strData)
 // vector
 void					Writer::vec2(float* pFloats)
 {
-	m_pBuffer->push((uint8_t*)&pFloats, 8);
+	m_pBuffer->push((uint8_t*)&pFloats, 2 * sizeof(float));
 }
 
 void					Writer::vec3(float* pFloats)
 {
-	m_pBuffer->push((uint8_t*)&pFloats, 12);
+	m_pBuffer->push((uint8_t*)&pFloats, 3 * sizeof(float));
 }
 
 void					Writer::vec4(float* pFloats)
 {
-	m_pBuffer->push((uint8_t*)&pFloats, 16);
+	m_pBuffer->push((uint8_t*)&pFloats, 4 * sizeof(float));
 }
 
 // matrix
 void					Writer::mat34(float* pFloats)
 {
-	m_pBuffer->push((uint8_t*)&pFloats, 48);
+	m_pBuffer->push((uint8_t*)&pFloats, 3 * 4 * sizeof(float));
 }
 
 void					Writer::mat43(float* pFloats)
 {
-	m_pBuffer->push((uint8_t*)&pFloats, 48);
+	m_pBuffer->push((uint8_t*)&pFloats, 4 * 3 * sizeof(float));
 }
 
 void					Writer::mat44(float* pFloats)
 {
-	m_pBuffer->push((uint8_t*)&pFloats, 64);
+	m_pBuffer->push((uint8_t*)&pFloats, 4 * 4 * sizeof(float));
 }
 
