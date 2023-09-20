@@ -31,7 +31,7 @@ uint8_t* RWBase::data()
 	return m_pBuffer->data();
 }
 
-size_t RWBase::length()
+uint64_t RWBase::length()
 {
 	return m_pBuffer->length();
 }

@@ -16,7 +16,7 @@ public:
 	~RWBase();
 	
 	uint8_t* data();
-	size_t length();
+	uint64_t length();
 
 	template <class T>
 	T format(T value)
