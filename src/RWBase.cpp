@@ -36,3 +36,16 @@ uint64_t RWBase::length()
 	return m_pBuffer->length();
 }
 
+void RWBase::reset()
+{
+	m_uiEndian = EEndian::INITIAL_ENDIAN;
+	if (m_bBufferApiOwned)
+	{
+		resetApiOwnedBuffer();
+	}
+	else
+	{
+		m_pBuffer = nullptr;
+	}
+}
+

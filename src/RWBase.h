@@ -18,6 +18,8 @@ public:
 	uint8_t* data();
 	uint64_t length();
 
+	void reset();
+
 	template <class T>
 	T format(T value)
 	{

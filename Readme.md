@@ -163,6 +163,8 @@ mx::RWBase
 uint8_t* mx::RWBase::data(); // Returns a pointer to the start of the data.
 uint64_t mx::RWBase::length(); // Returns the total length of the data.
 
+void mx::RWBase::reset();
+
 template <class T>
 T mx::RWBase::format(T value);
 
