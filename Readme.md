@@ -107,7 +107,7 @@ template <class T>
 void mx::Writer::st(T& structure);
 
 template <class T>
-void mx::Writer::st(T* pStructure);
+void mx::Writer::stp(T* pStructure);
 ```
 
 mx::Reader : public mx::RWBase
@@ -142,7 +142,7 @@ template <class T>
 T mx::Reader::st();
 
 template <class T>
-T* mx::Reader::st();
+T* mx::Reader::stp();
 ```
 
 mx::RWBase
