@@ -9,6 +9,30 @@ All code in this library is in a namespace called mx.
 
 -----
 
+**Introduction**
+
+This C++ library is used for packing and unpacking binary data, and aims to be easy to use.  
+  
+```cpp
+Writer bw;
+bw.ui8(10);
+bw.ui64(20);
+bw.cstr("example");
+//sendOrWrite(bw.data(), bw.length());
+
+//uint8_t* pBuffer =
+//uint64_t uiBufferLen =
+Reader br(pBuffer, uiBufferLen);
+int a = br.ui8();
+int b = br.ui64();
+string c = br.cstr("example");
+```
+  
+The API includes classes Writer and Reader which both extend RWBase, and RWBase stores a Buffer object.  
+The Buffer class, either uses either a std::vector<uint8_t> or 3 components which are a pointer, a data length, and an alloc length.
+
+-----
+
 **License**
 
 This library has the MIT license.  
