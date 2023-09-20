@@ -1,23 +1,24 @@
-**Data Packing (C++ Library)** mx namespace
+**Data Packing (C++ Library)**
 
 ![Build Status](https://github.com/MexUK/mxDataPacking/actions/workflows/msbuild.yml/badge.svg)  
 ![Build Status](https://github.com/MexUK/mxDataPacking/actions/workflows/cmake-win-linux-mac.yml/badge.svg)
 
-A C++ library with no dependencies, for packing/unpacking binary data, with an optional byte-vector buffer.
+A C++ library with no dependencies, for packing/unpacking binary data, with an optional byte-vector buffer.  
+  
+All code in this library is in the namespace called mx.
 
 -----
 
 **License**
 
-The library has MIT license.  
-This basically means you can use/edit the library for almost any purpose, make sure to  
-include the "LICENSE" file with your copy of this library.
+This library has the MIT license.  
+Meaning you can use/edit your copy of this library, even commercially, but include the license file.
 
 -----
 
 **Example**
 
-example.h
+example.h // for Writer::st(..) and Reader::st(..)
 
 ```cpp
 #include <cstdint>
