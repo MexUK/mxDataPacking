@@ -5,7 +5,7 @@
 
 A C++ library with no dependencies, for packing/unpacking binary data, with an optional byte-vector buffer.  
   
-All code in this library is in the namespace called mx.
+All code in this library is in a namespace called mx.
 
 -----
 
