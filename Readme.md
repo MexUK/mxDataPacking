@@ -3,7 +3,7 @@
 ![Build Status](https://github.com/MexUK/mxDataPacking/actions/workflows/msbuild.yml/badge.svg)  
 ![Build Status](https://github.com/MexUK/mxDataPacking/actions/workflows/cmake-win-linux-mac.yml/badge.svg)
 
-A C++ library with no dependencies, for packing/unpacking binary data, with an optional byte-vector buffer.  
+A C++ library with no dependencies, for packing/unpacking binary data, with an optional memory buffer.  
   
 All code in this library is in a namespace called mx.
 
