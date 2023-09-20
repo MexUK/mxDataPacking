@@ -83,7 +83,6 @@ mx::Writer : public mx::RWBase
 mx::Writer::Writer(Buffer* pBuffer);
 mx::Writer::Writer(uint8_t* pData, uint64_t uiDataLen, uint64_t uiDataAllocLength = 0);
 mx::Writer::Writer(void);
-mx::Writer::~Writer(void);
 
 void mx::Writer::ui8(uint8_t uiValue);
 void mx::Writer::ui16(uint16_t uiValue);
@@ -118,7 +117,6 @@ mx::Reader : public mx::RWBase
 mx::Reader::Reader(Buffer *pBuffer);
 mx::Reader::Reader(uint8_t* pData, uint64_t uiDataLen, uint64_t uiDataAllocLength = 0);
 mx::Reader::Reader(void);
-mx::Reader::~Reader(void);
 
 uint8_t mx::Reader::ui8();
 uint16_t mx::Reader::ui16();
