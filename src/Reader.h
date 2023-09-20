@@ -32,17 +32,23 @@ public:
 	char*						cstr(uint64_t uiLength);
 	std::string					mstr();
 
+	float* vec2();
+	float* vec3();
+	float* vec4();
+
+	float* mat34();
+	float* mat43();
+	float* mat44();
+
 	template <class T>
 	T st()
 	{
 		return *(T*)cstr(sizeof(T));
 	};
 
-	float*				vec2();
-	float*				vec3();
-	float*				vec4();
-
-	float*				mat34();
-	float*				mat43();
-	float*				mat44();
+	template <class T>
+	T* stp()
+	{
+		return (T*)cstr(sizeof(T));
+	};
 };

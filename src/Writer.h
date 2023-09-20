@@ -45,4 +45,10 @@ public:
 	{
 		cstr((char*)&structure, sizeof(T));
 	};
+
+	template <class T>
+	void stp(T* pStructure)
+	{
+		cstr((char*)pStructure, sizeof(T));
+	};
 };
