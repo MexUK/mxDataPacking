@@ -1,5 +1,7 @@
 #pragma once
 
+#include <cstdint>
+
 #include "mx.h"
 
 enum mx::EStorage : uint8_t
