@@ -35,7 +35,9 @@ The Buffer class, either uses either a std::vector<uint8_t> or a pointer, data l
 
 This library has the MIT license.  
   
-Meaning you can use/edit your copy of this library, even commercially, but include the license file.
+Meaning you can use/edit your copy of this library, even commercially, but include the license file.  
+  
+Please check the license file named "LICENSE" in the same directory as this Readme.md file.
 
 -----
 
