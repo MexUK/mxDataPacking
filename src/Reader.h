@@ -32,13 +32,13 @@ public:
 	char*						cstr(uint64_t uiLength);
 	std::string					mstr();
 
-	float* vec2();
-	float* vec3();
-	float* vec4();
+	float*						vec2();
+	float*						vec3();
+	float*						vec4();
 
-	float* mat34();
-	float* mat43();
-	float* mat44();
+	float*						mat34();
+	float*						mat43();
+	float*						mat44();
 
 	template <class T>
 	T st()
