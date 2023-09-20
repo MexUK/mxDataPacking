@@ -28,11 +28,11 @@ void RWBase::resetApiOwnedBuffer()
 
 uint8_t* RWBase::data()
 {
-	return m_pBuffer->m_vecData.data();
+	return m_pBuffer->data();
 }
 
-size_t RWBase::len()
+size_t RWBase::length()
 {
-	return m_pBuffer->m_vecData.size();
+	return m_pBuffer->length();
 }
 
