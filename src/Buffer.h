@@ -26,7 +26,7 @@ public:
 	Buffer(std::vector<uint8_t>& vecData); // EStorage::STD_VECTOR.
 	Buffer(uint8_t* pData, uint64_t uiDataLen, uint64_t uiDataAllocLength = 0); // EStorage::POINTER_READONLY. readonly buffer.
 	Buffer(); // must set m_uiStorage and other qualifying properties.
-	~Buffer();
+	virtual ~Buffer();
 
 	uint8_t					storage();
 	void					seek(uint64_t uiByteIndex);
