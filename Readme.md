@@ -18,6 +18,30 @@ RWBase stores Buffer, Buffer either uses a std::vector<uint8_t> or a pointer wit
 
 -----
 
+**Constructors**
+
+To use Reader with data that is stored by reference and readonly: (Preferred for reading)  
+```cpp
+Reader::Reader(uint8_t* pData, uint64_t uiDataLen, uint64_t uiDataAllocLength)
+```
+  
+To use Reader with data that is copied and expandable:  
+```cpp
+Reader::Reader() or Reader::Reader(Buffer* pBuffer)
+```
+  
+To use Writer with data that is stored by reference and readonly:  
+```cpp
+Writer(uint8_t* pData, uint64_t uiDataLen, uint64_t uiDataAllocLength)
+```
+  
+To use Writer with data that is copied and expandable: (Preferred for writing)
+```cpp
+Writer::Writer() or Writer::Writer(Buffer* pBuffer)
+```
+
+-----
+
 **Examples**
 
 ```cpp
