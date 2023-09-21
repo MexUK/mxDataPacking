@@ -31,7 +31,7 @@ using namespace mx;
 Writer bw;
 bw.ui8(10);
 bw.ui64(20);
-bw.cstr("example", strlen("example"));
+bw.cstr("example", strlen("example") + 1);
 bw.mstr("example");
 //sendOrWrite(bw.data(), bw.length());
 
@@ -40,7 +40,7 @@ bw.mstr("example");
 Reader br(pData, uiDataLen);
 int a = br.ui8();
 int b = br.ui64();
-char *c = br.cstr(7);
+char *c = br.cstr(strlen("example") + 1);
 string d = br.mstr();
 ```
 
