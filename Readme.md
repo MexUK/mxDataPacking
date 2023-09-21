@@ -157,7 +157,7 @@ void mx::Writer::stp(T* pStructure);
 mx::Reader : public mx::RWBase
 
 ```cpp
-mx::Reader::Reader(Buffer *pBuffer);
+mx::Reader::Reader(Buffer* pBuffer);
 mx::Reader::Reader(uint8_t* pData, uint64_t uiDataLen, uint64_t uiDataAllocLength = 0);
 mx::Reader::Reader(void);
 
