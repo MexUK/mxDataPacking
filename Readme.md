@@ -58,7 +58,6 @@ Reader::Reader(uint8_t* pData, uint64_t uiDataLen, uint64_t uiDataAllocLength = 
 To use Reader with data that is copied and expandable:  
 ```cpp
 Reader::Reader(void);
-Reader::Reader(Buffer* pBuffer);
 ```
   
 To use Writer with data that is stored by reference and readonly:  
@@ -69,7 +68,6 @@ Writer(uint8_t* pData, uint64_t uiDataLen, uint64_t uiDataAllocLength = 0);
 To use Writer with data that is copied and expandable: (Preferred for writing)
 ```cpp
 Writer::Writer(void);
-Writer::Writer(Buffer* pBuffer);
 ```
 
 -----
