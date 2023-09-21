@@ -21,10 +21,18 @@ RWBase stores Buffer, Buffer either uses a std::vector<uint8_t> or a pointer wit
 **Examples**
 
 ```cpp
+#include "mx.h"
+#include "Writer.h"
+#include "Reader.h"
+
+using namespace std;
+using namespace mx;
+
 Writer bw;
 bw.ui8(10);
 bw.ui64(20);
-bw.cstr("example");
+bw.cstr("example", strlen("example"));
+bw.mstr("example");
 //sendOrWrite(bw.data(), bw.length());
 
 //uint8_t* pData =
@@ -32,7 +40,8 @@ bw.cstr("example");
 Reader br(pData, uiDataLen);
 int a = br.ui8();
 int b = br.ui64();
-string c = br.cstr("example");
+char *c = br.cstr(7);
+string d = br.mstr();
 ```
 
 Please check the examples folder for other usage examples of this library.
