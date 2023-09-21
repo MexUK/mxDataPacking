@@ -111,7 +111,7 @@ mx::EStorage
 
 ```cpp
 mx::EStorage::STD_VECTOR = 0;
-mx::EStorage::POINTER_AND_LENGTH = 1;
+mx::EStorage::POINTER_READONLY = 1;
 ```
 
 mx::Writer : public mx::RWBase
