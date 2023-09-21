@@ -3,7 +3,9 @@
 ![Build Status](https://github.com/MexUK/mxDataPacking/actions/workflows/msbuild.yml/badge.svg)  
 ![Build Status](https://github.com/MexUK/mxDataPacking/actions/workflows/cmake-win-linux-mac.yml/badge.svg)
 
-A C++ library with no dependencies, for packing/unpacking binary data, with an optional memory buffer.
+A C++ library for packing/unpacking binary data, with no dependencies, and a memory buffer with by-ref or copy.  
+  
+Works with compilers vs2022, g++, clang++, cl, and probably more.
 
 -----
 
