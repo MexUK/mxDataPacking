@@ -43,7 +43,7 @@ Please check the examples folder for other usage examples of this library.
 
 To use Reader with data that is stored by reference and readonly: (Preferred for reading)  
 ```cpp
-Reader::Reader(uint8_t* pData, uint64_t uiDataLen, uint64_t uiDataAllocLength);
+Reader::Reader(uint8_t* pData, uint64_t uiDataLen, uint64_t uiDataAllocLength = 0);
 ```
   
 To use Reader with data that is copied and expandable:  
@@ -54,7 +54,7 @@ Reader::Reader(Buffer* pBuffer);
   
 To use Writer with data that is stored by reference and readonly:  
 ```cpp
-Writer(uint8_t* pData, uint64_t uiDataLen, uint64_t uiDataAllocLength);
+Writer(uint8_t* pData, uint64_t uiDataLen, uint64_t uiDataAllocLength = 0);
 ```
   
 To use Writer with data that is copied and expandable: (Preferred for writing)
