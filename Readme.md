@@ -23,9 +23,7 @@ RWBase stores Buffer, Buffer either uses a std::vector<uint8_t> or a pointer wit
 **Examples**
 
 ```cpp
-#include "mx.h"
-#include "Writer.h"
-#include "Reader.h"
+#include "mxDataPacking.h"
 
 using namespace std;
 using namespace mx;
@@ -87,6 +85,20 @@ Please check the license file named "LICENSE" in the same directory as this Read
 -----
 
 **API**
+
+mxDataPacking.h - #include this file in your code.
+
+```cpp
+#pragma once
+
+#include "mx.h"
+#include "EEndian.h"
+#include "EStorage.h"
+#include "Buffer.h"
+#include "RWBase.h"
+#include "Reader.h"
+#include "Writer.h"
+```
 
 mx
 

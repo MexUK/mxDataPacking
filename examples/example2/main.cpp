@@ -1,7 +1,5 @@
 #include "example.h"
-#include "mx.h"
-#include "Writer.h"
-#include "Reader.h"
+#include "mxDataPacking.h"
 
 using namespace std;
 using namespace mx;

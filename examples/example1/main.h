@@ -1,8 +1,6 @@
 #pragma once
 
-#include "mx.h"
-#include "Writer.h"
-#include "Reader.h"
+#include "mxDataPacking.h"
 
 #define PROTOCOL_OPCODE_INITIAL_PACKET 1
 

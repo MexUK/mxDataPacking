@@ -130,6 +130,7 @@
     <ClInclude Include="src\EEndian.h" />
     <ClInclude Include="src\Buffer.h" />
     <ClInclude Include="src\EStorage.h" />
+    <ClInclude Include="src\mxDataPacking.h" />
     <ClInclude Include="src\mx.h" />
     <ClInclude Include="src\Reader.h" />
     <ClInclude Include="src\RWBase.h" />

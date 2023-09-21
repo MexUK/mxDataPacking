@@ -36,6 +36,9 @@
     <ClInclude Include="src\EStorage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\mxDataPacking.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\RWBase.cpp">
