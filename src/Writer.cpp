@@ -131,7 +131,7 @@ void					Writer::mstr(string& strData)
 		ui64(uiLen);
 	}
 
-	m_pBuffer->push((uint8_t*)strData.c_str(), strData.length());
+	m_pBuffer->push((uint8_t*)strData.c_str(), uiLen);
 }
 
 // vector
