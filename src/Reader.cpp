@@ -94,7 +94,26 @@ char*						Reader::cstr(uint64_t uiLength)
 
 string						Reader::mstr()
 {
-	uint64_t uiLength = ui64();
+	uint64_t uiLength = ui8();
+
+	switch (uiLength)
+	{
+	case 0xFF:
+		uiLength = ui16();
+		break;
+	case 0xFE:
+		uiLength = ui24();
+		break;
+	case 0xFD:
+		uiLength = ui32();
+		break;
+	case 0xFC:
+		uiLength = ui64();
+		break;
+	default:
+		break;
+	}
+
 	string str((char*)m_pBuffer->get(uiLength));
 	return str;
 }

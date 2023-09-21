@@ -104,7 +104,33 @@ void					Writer::cstr(char* pData, uint64_t uiLength)
 
 void					Writer::mstr(string& strData)
 {
-	ui64(strData.length());
+	uint64_t uiLen = strData.length();
+
+	if (uiLen < 0xFC)
+	{
+		ui8(uiLen);
+	}
+	else if (uiLen < 0xFFFF)
+	{
+		ui8(0xFF);
+		ui16(uiLen);
+	}
+	else if (uiLen < 0xFFFFFF)
+	{
+		ui8(0xFE);
+		ui24(uiLen);
+	}
+	else if (uiLen < 0xFFFFFFFF)
+	{
+		ui8(0xFD);
+		ui32(uiLen);
+	}
+	else
+	{
+		ui8(0xFC);
+		ui64(uiLen);
+	}
+
 	m_pBuffer->push((uint8_t*)strData.c_str(), strData.length());
 }
 
